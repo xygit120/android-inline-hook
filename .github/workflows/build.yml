@@ -22,7 +22,6 @@ jobs:
 
       - name: Build ShadowHook
         run: |
-          cd shadowhook
           ./gradlew assembleRelease
 
       - name: Upload artifacts
