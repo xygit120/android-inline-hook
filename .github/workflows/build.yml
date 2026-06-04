@@ -20,9 +20,15 @@ jobs:
         with:
           ndk-version: r27c
 
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: 3.22.1     # 使用稳定版本
+
       - name: Build ShadowHook
         run: |
-          ./gradlew assembleRelease
+          chmod +x gradlew
+          ./gradlew assembleRelease --stacktrace
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
